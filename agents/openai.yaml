@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Project Director"
+  short_description: "Clarify, plan, orchestrate, and verify local AI projects"
+  default_prompt: "Use $ai-project-director to launch this project from discovery through planning, orchestration, review, and handoff."
