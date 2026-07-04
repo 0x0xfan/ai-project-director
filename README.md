@@ -1,5 +1,7 @@
 # ai-project-director
 
+[中文 README](README.zh-CN.md)
+
 `ai-project-director` is a Codex Skill for running local AI-assisted projects as a staged, reviewable workflow.
 
 It is designed for people who do not want to start with code immediately. The Skill first clarifies the project, turns the idea into requirements, creates durable project files, plans the roadmap, then manages execution through child threads, goals, heartbeat automation, and adversarial review gates.
@@ -249,6 +251,8 @@ Do not accept the implementation thread's self-report without evidence.
 
 ```text
 ai-project-director/
+├── README.md
+├── README.zh-CN.md
 ├── SKILL.md
 ├── agents/
 │   └── openai.yaml
