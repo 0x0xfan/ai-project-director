@@ -14,7 +14,17 @@ Use this phase whenever a child thread claims completion or a significant artifa
 - Review diff, files, generated artifacts, commands, screenshots, logs, and reports.
 - Search for counterexamples, missing edge cases, old assumptions, and evidence gaps.
 - Return a strict verdict.
-- If independent review tools are unavailable, run an adversarial review in the current thread and mark the confidence lower.
+- If independent review tools are unavailable, run an adversarial review in the current thread only under the same-thread constraints below.
+
+## Same-Thread Review Constraints
+
+When `Review Independence` is `same-thread`, `ACCEPTED` requires all of:
+
+- At least 3 distinct counterexample attempts recorded in `Counterexamples`, even if all are rejected.
+- At least 1 reproducible external evidence item inspected, such as a diff, log file, screenshot, test output, command output, or generated artifact.
+- A note explaining why independent review was not possible.
+
+If any requirement is unmet, the verdict must be `NEEDS_REPAIR`, `NEEDS_USER_DECISION`, or `INVALID_REVIEW`; never `ACCEPTED`.
 
 ## Forbidden Actions
 
@@ -46,7 +56,10 @@ ACCEPTED
 NEEDS_REPAIR
 BLOCKED
 NEEDS_USER_DECISION
+INVALID_REVIEW
 ```
+
+Use `INVALID_REVIEW` when the review itself did not inspect evidence, exceeded scope, or repaired instead of reviewing.
 
 ## Review Report
 

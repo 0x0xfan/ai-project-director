@@ -23,7 +23,7 @@ Hard gates:
 - No requirements handoff -> do not build a roadmap.
 - No harness/status files -> do not start multi-thread execution.
 - No acceptance criteria -> do not start implementation or `/goal`.
-- No independent adversarial review -> do not accept important implementation work as complete.
+- No independent or hardened same-thread adversarial review -> do not accept important implementation work as complete.
 - No Git/worktree isolation -> do not run multiple write threads in the same project directory.
 - User pause/stop instructions override all automation and active work.
 
@@ -42,10 +42,13 @@ First identify the current situation:
 - User pauses, resumes, archives, or asks for handoff -> read `references/08-pause-resume.md`.
 - Project needs consistent task/thread/status files -> read `references/09-status-schemas.md`.
 - The skill or project workflow itself needs audit -> read `references/10-quality-audit.md`.
+- User or agent needs a concrete walkthrough of the workflow -> read `references/11-worked-example.md`.
 
 For mixed requests, start with the earliest missing phase. Example: if the user asks for multi-thread implementation but requirements are vague, do Discovery and Requirements first.
 
 ## Phase Map
+
+Phase numbers are lifecycle gates. Roadmap Stage IDs (`D0`-`D4`) are internal task stages used inside Phase 4 and execution reports; do not confuse them with lifecycle Phase numbers.
 
 ### Phase 0: Intake
 
@@ -101,13 +104,13 @@ Goal: split requirements into staged work and task cards.
 
 Read `references/04-roadmap.md`.
 
-Use D0/D1/D2/D3 staging:
+Use Roadmap Stage D0/D1/D2/D3/D4 staging:
 
-- D0: contract, schema, interfaces, or documentation convergence.
-- D1: first runnable vertical slice.
-- D2: feature expansion.
-- D3: UX/detail/performance polish.
-- D4: release, cleanup, and final evidence.
+- Roadmap Stage D0: contract, schema, interfaces, or documentation convergence.
+- Roadmap Stage D1: first runnable vertical slice.
+- Roadmap Stage D2: feature expansion.
+- Roadmap Stage D3: UX/detail/performance polish.
+- Roadmap Stage D4: release, cleanup, and final evidence.
 
 Exit only when tasks have dependencies, allowed files, forbidden actions, and verification.
 
@@ -125,7 +128,7 @@ Goal: challenge completed work before accepting it.
 
 Read `references/06-adversarial-review.md`.
 
-Implementation completion is only candidate completion. Important work must pass independent adversarial review before the director accepts it.
+Implementation completion is only candidate completion. Important work must pass independent adversarial review, or the hardened same-thread fallback in `references/06-adversarial-review.md`, before the director accepts it.
 
 ### Phase 7: Heartbeat
 
@@ -166,6 +169,8 @@ Handoff Packet
 
 Write the packet into the appropriate project state file when the project has a harness. Use `CURRENT.md` for live status and `HANDOFF.md` for next-session continuity.
 
+The Universal Handoff Packet is the outer shell. Each phase reference may define phase-specific handoff fields; put those details inside `Current Decision` and `Accepted Artifacts`, or attach them immediately under the packet as phase-specific expansion. Do not omit universal fields. If a field does not apply yet, write `N/A`.
+
 When task, thread, phase, or review status needs to be written, use the schemas in `references/09-status-schemas.md` rather than inventing new labels.
 
 ## Thread Roles
@@ -184,6 +189,10 @@ Use these roles consistently:
 - Use project initialization patterns from `harness-project-init` when creating durable repo files.
 - Use `contract-first-loop` for one concrete task contract or when drafting a persistent `/goal`.
 - This skill owns the full project lifecycle and decides when those narrower workflows are appropriate.
+
+## Agent Metadata
+
+`agents/openai.yaml` is UI metadata for skill lists and default prompts. It is not runtime configuration, a model provider config, or a project state file.
 
 ## Self-Audit
 

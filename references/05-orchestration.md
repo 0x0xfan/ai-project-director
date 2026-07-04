@@ -8,6 +8,10 @@ Use this phase to run the project through child threads, worktrees, goals, and s
 - Task cards exist.
 - Project status files exist.
 
+## Capability Recheck
+
+Before creating or promising child threads, goals, worktrees, or automations, re-check that the tools are available in the current thread and environment. If availability changed since Intake, update the orchestration plan and use the fallback path instead of continuing on stale assumptions.
+
 ## Allowed Actions
 
 - Create child threads when thread tools are available.

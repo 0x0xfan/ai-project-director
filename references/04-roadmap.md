@@ -9,7 +9,7 @@ Use this phase to convert requirements into staged, bounded tasks.
 
 ## Allowed Actions
 
-- Split work into D0/D1/D2/D3/D4 phases.
+- Split work into Roadmap Stage D0/D1/D2/D3/D4.
 - Create task cards.
 - Define dependencies and parallelization rules.
 - Decide which tasks need read-only review before implementation.
@@ -24,11 +24,13 @@ Use this phase to convert requirements into staged, bounded tasks.
 
 ## Stage Model
 
-- D0: contract, schema, interface, data model, or documentation convergence.
-- D1: first runnable vertical slice.
-- D2: feature expansion.
-- D3: UX, performance, content, reliability, or detail polish.
-- D4: release, cleanup, final evidence, and archive.
+Roadmap Stage IDs are internal to the Roadmap phase. They are not lifecycle Phase numbers.
+
+- Roadmap Stage D0: contract, schema, interface, data model, or documentation convergence.
+- Roadmap Stage D1: first runnable vertical slice.
+- Roadmap Stage D2: feature expansion.
+- Roadmap Stage D3: UX, performance, content, reliability, or detail polish.
+- Roadmap Stage D4: release, cleanup, final evidence, and archive.
 
 ## Task Card
 
@@ -55,8 +57,8 @@ Task Card
 
 - Parallelize read-only discovery and review freely.
 - Parallelize write tasks only when file ownership is disjoint or worktrees are available.
-- Do D0 before implementation when contracts, schema, or data flow are unstable.
-- Do not start D2 before the D1 vertical slice can be verified.
+- Do Roadmap Stage D0 before implementation when contracts, schema, or data flow are unstable.
+- Do not start Roadmap Stage D2 before the Roadmap Stage D1 vertical slice can be verified.
 
 ## Exit Gate
 
@@ -73,7 +75,7 @@ Roadmap is complete only when:
 
 ```text
 Roadmap Handoff
-- Current Stage:
+- Current Roadmap Stage:
 - Next Task Batch:
 - Parallel Tasks:
 - Serial Tasks:

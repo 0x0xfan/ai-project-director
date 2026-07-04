@@ -14,6 +14,16 @@ Choose exactly one primary route:
 
 If multiple routes apply, choose the earliest missing lifecycle phase. Example: an existing folder with no requirements goes to Requirements or Harness before Orchestration.
 
+## Size Triage
+
+Route to `SINGLE_TASK` when all are true:
+
+- The request is estimated at 2 task cards or fewer.
+- The expected edit scope is 1 file or fewer.
+- The user does not need multi-thread execution, heartbeat, worktrees, or durable project governance.
+
+For `SINGLE_TASK`, skip the full Discovery/Requirements/Harness lifecycle. Produce a short task contract with objective, inputs, acceptance criteria, allowed files, forbidden files, verification, and stop conditions, then execute directly. If the task expands into a formal project, return to Intake and re-route.
+
 ## Required Intake Facts
 
 Collect only what changes routing:

@@ -44,7 +44,7 @@ Use this Skill when you want Codex to help with:
 - reviewing completed work with independent adversarial checks
 - pausing and resuming a long-running project safely
 
-Do not use it for a single small task. For that, use a bounded task workflow such as `contract-first-loop`.
+Do not use the full lifecycle for a single small task. If the work is at most 2 task cards, touches at most 1 file, and needs no multithreading or heartbeat, route it through the `SINGLE_TASK` fast path or a bounded task workflow such as `contract-first-loop`.
 
 ## Core Rules
 
@@ -118,14 +118,14 @@ docs/architecture.md
 
 ### 4. Roadmap
 
-Splits work into staged tasks:
+Splits work into internal Roadmap Stages:
 
 ```text
-D0: contract, schema, interface, data model, or documentation convergence
-D1: first runnable vertical slice
-D2: feature expansion
-D3: UX, performance, content, reliability, or detail polish
-D4: release, cleanup, final evidence, and archive
+Roadmap Stage D0: contract, schema, interface, data model, or documentation convergence
+Roadmap Stage D1: first runnable vertical slice
+Roadmap Stage D2: feature expansion
+Roadmap Stage D3: UX, performance, content, reliability, or detail polish
+Roadmap Stage D4: release, cleanup, final evidence, and archive
 ```
 
 Each task gets allowed files, forbidden files, acceptance criteria, verification, dependencies, and review requirements.
@@ -241,7 +241,7 @@ Only start child threads after task cards, allowed files, forbidden files, and a
 Run a review gate:
 
 ```text
-Use $ai-project-director to adversarially review the candidate work from task D1.
+Use $ai-project-director to adversarially review the candidate work from Roadmap Stage D1.
 Do not accept the implementation thread's self-report without evidence.
 ```
 
@@ -263,8 +263,11 @@ ai-project-director/
     ├── 07-heartbeat.md
     ├── 08-pause-resume.md
     ├── 09-status-schemas.md
-    └── 10-quality-audit.md
+    ├── 10-quality-audit.md
+    └── 11-worked-example.md
 ```
+
+`agents/openai.yaml` is Codex UI metadata for the skill display name, short description, and default prompt. It is not a model provider config and it does not store project state.
 
 ## Relationship To Other Workflows
 

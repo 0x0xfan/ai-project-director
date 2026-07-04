@@ -94,6 +94,12 @@ Use `INVALID_REVIEW` when the review did not inspect evidence, exceeded its scop
 - Next Action:
 ```
 
+## File Responsibility Boundaries
+
+- `DECISIONS.md`: irreversible or expensive-to-reverse direction changes, with reason, superseded assumptions, affected files, verification needed, and revisit trigger. Append only; do not rewrite history.
+- `CURRENT.md`: live snapshot of this moment, including current phase, WIP, active threads, blockers, last verified evidence, next smallest action, and user decisions needed. Update whenever state changes.
+- `HANDOFF.md`: first file to read on resume. Extract the practical resume bridge from `CURRENT.md`: read first, do next, do not do, active threads to check, required verification, and safe resume condition.
+
 ## CURRENT.md Suggested Top Section
 
 ```text

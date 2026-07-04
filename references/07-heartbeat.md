@@ -9,6 +9,10 @@ Use heartbeat automation to keep a project moving while preserving control.
 - Active tasks or threads exist.
 - The user wants recurring follow-up or background advancement.
 
+## Capability Recheck
+
+At setup and on each wake, re-check whether automation, thread, goal, worktree, and project-read tools are still available. If a required tool is missing, record the limitation in `CURRENT.md` or `HANDOFF.md` and choose `ASK`, `PAUSE`, or a manual fallback instead of pretending unattended progress is running.
+
 ## Allowed Actions
 
 - Create or update a thread automation when automation tools are available.

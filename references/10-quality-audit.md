@@ -35,7 +35,7 @@ The skill or workflow passes only if:
 - Status labels are consistent.
 - Automation has pause and stop rules.
 - Multi-thread execution has isolation rules.
-- Review gate cannot be satisfied by the same implementation context alone.
+- Review gate cannot be satisfied by the same implementation context alone unless the hardened same-thread criteria in `references/06-adversarial-review.md` are met.
 - Non-code projects can still use the workflow.
 - Tool-unavailable fallbacks exist.
 
